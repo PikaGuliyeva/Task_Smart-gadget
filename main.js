@@ -3,7 +3,7 @@ const products = [
         id: 1,
         category: "Telefon",
         name: "IPhone 16 Pro",
-        image: "images/iphone 16 pro.webp",
+        image: "image/iphone 16 pro.webp",
         link: "https://birmarket.az/product/958343-smartfon-apple-iphone-16-pro-max-8gb-256gb-desert-titanium",
         price: 2000
     },
@@ -11,7 +11,7 @@ const products = [
         id: 2,
         category: "Saat",
         name: "Apple Watch 11 series",
-        image: "images/Apple Watch 11.jfif",
+        image: "image/Apple Watch 11.jfif",
         link: "https://birmarket.az/product/1924241-agilli-saat-apple-watch-series-11-gps-46mm-space-grey-with-black-sport-band-s-m-mev04lw-a#search_id=8c64467e-c713-40e5-9782-c2d631d553d1",
         price: 900
 
@@ -99,3 +99,22 @@ const products = [
         price: 3800
     },
 ]
+const index = 0;
+const productCount = products.length;
+
+showProducts(index);
+
+function showProducts(index) {
+
+    document.querySelector('.product-link').setAttribute('href',products[index].link);
+
+    document.querySelector('.product-img').setAttribute('src',products[index].image);
+    
+    document.querySelector('.product-category').textContent = products[index].category
+    
+    document.querySelector('.product-name').textContent = products[index].name;
+        
+    document.querySelector('.product-price').textContent = products[index].price;
+}
+
+ 
