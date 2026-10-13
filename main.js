@@ -99,22 +99,47 @@ const products = [
         price: 3800
     },
 ]
-const index = 0;
-const productCount = products.length;
+showProducts()
 
-showProducts(index);
+function showProducts() {
+    const productsList = document.getElementById("products-list");
 
-function showProducts(index) {
+    productsList.innerHTML = "";
 
-    document.querySelector('.product-link').setAttribute('href',products[index].link);
+    products.forEach(function(product) {
+        productsList.innerHTML += `
+            <div class="products">
+                <a class="product-link"
+                   href="${product.link}"
+                   target="_blank"
+                   rel="noopener noreferrer">
 
-    document.querySelector('.product-img').setAttribute('src',products[index].image);
-    
-    document.querySelector('.product-category').textContent = products[index].category
-    
-    document.querySelector('.product-name').textContent = products[index].name;
-        
-    document.querySelector('.product-price').textContent = products[index].price;
+                    <img
+                        class="product-img"
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
+                </a>
+
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5 class="product-category">
+                            ${product.category}
+                        </h5>
+
+                        <h4 class="product-name">
+                            ${product.name}
+                        </h4>
+                    </div>
+
+                    <div class="price-info">
+                        <h5 class="product-price">
+                            ${product.price} AZN
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
 }
-
  
